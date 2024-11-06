@@ -10,7 +10,7 @@
 // Conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "MyCLFDBss8**";
 $dbname = "proyectopsicologia";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
