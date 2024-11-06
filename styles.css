@@ -1,0 +1,142 @@
+body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; 
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f4f4f4;
+}
+
+.container {
+        max-width: 800px;
+        text-align: center;
+        background-color: #fff;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+        overflow: hidden;
+}
+
+.containerGP {
+        width: 100%; /* Ajusta el ancho al 100% para que no se recorte */
+        margin-bottom: 20px; /* Espacio entre los contenedores */
+        box-sizing: border-box;      
+}
+
+h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+}
+
+a {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+}
+
+a:hover {
+        background-color: #0056b3;
+}
+
+.boton {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none; /* Eliminar bordes adicionales */
+        cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+        font-size: 16px; /* Ajustar el tamaño de la fuente */
+        transition: background-color 0.3s ease; /* Animación suave al pasar el mouse */
+}
+        
+.boton:hover {
+        background-color: #0056b3; /* Cambiar el color de fondo al pasar el mouse */
+}
+        
+table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+}
+        
+table, th, td {
+        border: 1px solid #ddd;
+}
+        
+th, td {
+        padding: 15px;
+        text-align: left;
+}
+        
+th {
+        background-color: #007bff;
+        color: white;
+}
+        
+td {
+        background-color: #f9f9f9;
+}
+           
+.no-data {
+        text-align: center;
+        color: #888;
+        font-size: 18px;
+}
+
+form {
+        display: flex;
+        flex-direction: column; 
+        gap: 20px; 
+        width: 100%; 
+}
+        
+label {
+        display: block; 
+        margin-bottom: 10px; 
+        font-weight: bold;
+        color: #555;
+        text-align: left;
+        width: 100%;
+}
+
+input[type="text"] {
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+}
+
+input[type="radio"] {
+        margin-right: 10px;
+}
+
+textarea, input[type="text"] {
+        width: 100%;
+        box-sizing: border-box; 
+}
+
+p {
+        text-align: center;
+        color: #999;
+}
+
+.question {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+}
