@@ -25,11 +25,11 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
 
         <?php if ($tipo_usuario == 'admin'): ?>
             <a href="gestionpregunta.php">Gestionar Preguntas</a><br>
-            <a href="seleccionpregunta.php">Gestionar Formularios</a><br>
+            <a href="seleccionpregunta.php">Gestionar Formulario Nuevo</a><br>
             <a href="consulta_estudiante.php">Consultar Cuestionarios Resueltos</a><br>
         <?php endif; ?>
 
-        <a href="cuestionarios.php">Responder Cuestionarios</a><br>
+        <a href="cuestionarios.php">Cuestionarios</a><br>
         <a href="logout.php">Cerrar Sesión</a>
     </div>
 </body>

@@ -27,8 +27,7 @@ if (isset($_SESSION['id_usuario'])) {
         // Para los gestores (admin), mostrar todos los cuestionarios dirigidos a Gestores sin filtro de resueltos
         $sql = "
             SELECT c.id, c.titulo 
-            FROM cuestionario c
-            WHERE c.dirigido = 'Gestor'";
+            FROM cuestionario c";
     } elseif ($tipoUsuario === 'estudiante') {
         // Para los estudiantes, mostrar solo cuestionarios dirigidos a Estudiantes que no han sido respondidos
         $sql = "
@@ -75,7 +74,21 @@ if (isset($_SESSION['id_usuario'])) {
                             <td><?php echo $row['id']; ?></td>
                             <td><?php echo $row['titulo']; ?></td>
                             <td>
-                                <a href="responder.php?id=<?php echo $row['id']; ?>">Responder</a>
+                                <?php if ($tipoUsuario === 'admin'): ?>
+                                    <!-- Opciones de Duplicar y Eliminar para el usuario admin -->
+                                    <form action="duplicar_cuestionario.php" method="POST" style="display:inline;">
+                                        <input type="hidden" name="id_cuestionario" value="<?php echo $row['id']; ?>">
+                                        <input type="text" name="nuevo_titulo" placeholder="Nuevo título" required>
+                                        <button class="boton" type="submit">Duplicar</button>
+                                    </form>
+                                    <form action="eliminar_cuestionario.php" method="POST" style="display:inline;">
+                                        <input type="hidden" name="id_cuestionario" value="<?php echo $row['id']; ?>">
+                                        <button class="boton" type="submit" onclick="return confirm('¿Estás seguro de eliminar este cuestionario?')">Eliminar</button>
+                                    </form>
+                                <?php else: ?>
+                                    <!-- Opción Responder solo para estudiantes -->
+                                    <a href="responder.php?id=<?php echo $row['id']; ?>">Responder</a>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endwhile; ?>
@@ -88,7 +101,7 @@ if (isset($_SESSION['id_usuario'])) {
         </table>
     </div>
 
-    <a href="dashboard.php">Menu</a><br>
+    <a href="dashboard.php">Menú</a><br>
     <a href="logout.php">Cerrar Sesión</a>
 </body>
 </html>
