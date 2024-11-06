@@ -10,7 +10,7 @@
 // Conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "MyCLFDBss8**";
+$password = "";
 $dbname = "proyectopsicologia";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -61,21 +61,26 @@ $result = $conn->query($sql);
                     <th>Seleccionar</th>
                     <th>ID Pregunta</th>
                     <th>Pregunta</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 if ($result->num_rows > 0) {
-                    // Mostrar cada pregunta con una casilla de verificación
+                    // Mostrar cada pregunta con una casilla de verificación y opciones de editar/eliminar
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
                                 <td><input type='checkbox' name='preguntas[]' value='{$row['id']}'></td>
                                 <td>{$row['id']}</td>
                                 <td>{$row['pregunta']}</td>
+                                <td>
+                                    <a href='editar_pregunta.php?id={$row['id']}'>Editar</a> |
+                                    <a href='eliminar_pregunta.php?id={$row['id']}' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta pregunta?\");'>Eliminar</a>
+                                </td>
                               </tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='3'>No hay preguntas registradas.</td></tr>";
+                    echo "<tr><td colspan='4'>No hay preguntas registradas.</td></tr>";
                 }
                 ?>
             </tbody>
@@ -89,4 +94,3 @@ $result = $conn->query($sql);
 <?php
 $conn->close(); // Cerrar la conexión
 ?>
-
